@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import ProductDetails from './components/ProductDetails';
+import ProductList from './components/ProductList';
+import WelcomePage from './components/WelcomePage';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+      <Route path="/categories/:categoryname/products/:productid" render={({ match }) => (
+                    <ProductDetails category={match.params.categoryname} productId={match.params.productid} />
+                )} />
+                 <Route path="/categories/:categoryname/products" render={({ match }) => (
+                    <ProductList category={match.params.categoryname} />
+                )} />
+                 <Route path="/" element={<WelcomePage />} />
+      </Routes>
     </div>
   );
 }
