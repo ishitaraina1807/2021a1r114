@@ -18,7 +18,7 @@ const WelcomePage = () => {
 
   return (
     <div className="welcome-container">
-      <h1 className="welcome-title">Welcome to the E-Commerce Comparison Tool</h1>
+      <h1 className="welcome-title">Welcome to the HappyMart</h1>
       <form className="welcome-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label className="form-label">
