@@ -8,15 +8,11 @@ import WelcomePage from './components/WelcomePage';
 function App() {
   return (
     <div>
-      <Routes>
-      <Route path="/categories/:categoryname/products/:productid" render={({ match }) => (
-                    <ProductDetails category={match.params.categoryname} productId={match.params.productid} />
-                )} />
-                 <Route path="/categories/:categoryname/products" render={({ match }) => (
-                    <ProductList category={match.params.categoryname} />
-                )} />
-                 <Route path="/" element={<WelcomePage />} />
-      </Routes>
+       <Routes>
+       <Route path="/categories/:categoryname/products/:productid" element={<ProductDetails />} />
+          <Route path="/categories/:categoryname/products" element={<ProductList />} />
+          <Route path="/" element={<WelcomePage />} />
+        </Routes>
     </div>
   );
 }
